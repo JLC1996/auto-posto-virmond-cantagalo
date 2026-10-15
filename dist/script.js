@@ -1,6 +1,5 @@
 const header = document.querySelector('.site-header');
 const progress = document.querySelector('.scroll-progress');
-const hero = document.querySelector('.hero-image');
 const menuButton = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,9 +9,6 @@ function onScroll() {
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   header.classList.toggle('is-scrolled', scrollTop > 40);
   progress.style.width = `${maxScroll > 0 ? Math.min(100, (scrollTop / maxScroll) * 100) : 0}%`;
-  if (!reducedMotion.matches && scrollTop < window.innerHeight * 1.25) {
-    hero.style.setProperty('--hero-shift', `${Math.min(80, scrollTop * .085)}px`);
-  }
 }
 
 let ticking = false;
